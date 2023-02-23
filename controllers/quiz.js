@@ -1,4 +1,4 @@
-const { Study } = require('../models')
+const { Quiz } = require('../models')
 const cloudinary = require('cloudinary').v2
 
 
