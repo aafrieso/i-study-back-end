@@ -19,7 +19,21 @@ const index = async (req, res) => {
   }
 }
 
+const update = async (req, res) => {
+  try {
+    const quiz = await Quiz.findByPk(req.params.id);
+    quiz.set(req.body);
+    await quiz.save();
+
+    res.status(200).json(quiz);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+}
+
+
 module.exports = {
   create,
   index,
+  update,
 }
