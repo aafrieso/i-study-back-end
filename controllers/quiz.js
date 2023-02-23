@@ -31,9 +31,20 @@ const update = async (req, res) => {
   }
 }
 
+const deleteQuiz = async (req, res) => {
+  try {
+    const quiz = await Quiz.findByPk(req.params.id);
+    await quiz.destroy();
+    
+    res.status(200).json(numberOfRowsRemoved);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+}
 
 module.exports = {
   create,
   index,
   update,
+  delete: deleteQuiz
 }
