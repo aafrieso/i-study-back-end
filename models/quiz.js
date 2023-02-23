@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const Quiz = sequelize.define('Quiz', {
   title: {
@@ -11,15 +11,13 @@ const Quiz = sequelize.define('Quiz', {
   },
   difficulty: {
     type: DataTypes.ENUM,
-    values: [ 'easy', 'medium', 'hard' ],
+    values: ['easy', 'medium', 'hard'],
     defaultValue: 'easy',
   },
   questions: {
     type: DataTypes.JSONB,
     allowNull: false,
-  },
-}
+  }
 });
 
 module.exports = Quiz;
-
