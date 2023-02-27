@@ -34,7 +34,7 @@ const deleteQuiz = async (req, res) => {
   try {
     const quiz = await Quiz.findByPk(req.params.id);
     await quiz.destroy();
-    res.status(200).json(numberOfRowsRemoved);
+    res.status(200).json(quiz);
   } catch (error) {
     res.status(500).json(error);
   }
