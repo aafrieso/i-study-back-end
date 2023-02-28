@@ -22,7 +22,13 @@ const index = async (req, res) => {
 const update = async (req, res) => {
   try {
     const quiz = await Quiz.findByPk(req.params.id);
-    quiz.set(req.body);
+    // quiz.set(req.body);
+    quiz.question = req.body.question
+    quiz.option1 = req.body.option1
+    quiz.option2 = req.body.option2
+    quiz.option3 = req.body.option3
+    quiz.option4 = req.body.option4
+    quiz.answer = req.body.answer
     await quiz.save();
     res.status(200).json(quiz);
   } catch (error) {
